@@ -1,0 +1,72 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Container for Weather Cards */
+  #weather-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 30px 20px;
+  }
+  
+  /* Weather Card */
+  .card {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e3e3e3;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Card Title (City Name) */
+  .card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 12px;
+  }
+  
+  /* Weather Info */
+  .card p {
+    font-size: 16px;
+    margin: 6px 0;
+    color: #444;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    #weather-container {
+      padding: 20px 10px;
+    }
+  
+    .card {
+      padding: 20px 16px;
+    }
+  
+    .card h2 {
+      font-size: 20px;
+    }
+  
+    .card p {
+      font-size: 15px;
+    }
+  }
+  

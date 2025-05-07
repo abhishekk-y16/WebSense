@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather Forecast - WebSense</title>
+  <link rel="stylesheet" href="../../frontend/style.css">
+  <link rel="stylesheet" href="../../frontend/pages.css">
+  <link rel="stylesheet" href="../../frontend/weather.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="crypto.html">Crypto Prices</a></li>
+        <li><a href="weather.html">Weather</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="price.html">Prices</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+   <h1 class="page-title">Current Weather in Top 15 Cities</h1>
+    <div id="weather-container" class="card-grid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 WebSense | All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    async function fetchWeather() {
+      const cities = [
+        'New York', 'London', 'Paris', 'Tokyo', 'Sydney', 'Berlin',
+        'Los Angeles', 'Rome', 'Barcelona', 'Dubai', 'Istanbul', 'Mumbai',
+        'Mexico City', 'Cairo', 'Rio de Janeiro'
+      ];
+      
+      try {
+        const container = document.getElementById('weather-container');
+        container.innerHTML = ''; // Clear previous results
+
+        // Loop through the cities and fetch their weather
+        for (let city of cities) {
+          const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c95c4b4e192d129bb946d83057181005&units=metric`);
+          const data = await response.json();
+          
+          if (data.cod !== 200) {
+            continue; // Skip cities if the data is not available
+          }
+
+          // Create and append the weather card
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h2>${data.name}, ${data.sys.country}</h2>
+            <p>Temperature: ${data.main.temp}°C</p>
+            <p>Weather: ${data.weather[0].description}</p>
+            <p>Wind Speed: ${data.wind.speed} m/s</p>
+          `;
+          container.appendChild(card);
+        }
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+      }
+    }
+
+    fetchWeather();
+    setInterval(fetchWeather, 60000); // Update every 10 seconds
+
+  </script>
+</body>
+</html>
