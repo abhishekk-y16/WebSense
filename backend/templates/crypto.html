@@ -6,19 +6,7 @@
   <link rel="stylesheet" href="../../frontend/style.css">
   <link rel="stylesheet" href="../../frontend/pages.css">
 </head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        
-        <li><a href="crypto.html">Crypto Prices</a></li>
-        <li><a href="weather.html">Weather</a></li>
-        <li><a href="news.html">News</a></li>
-        
-        <li><a href="price.html">Prices</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="light-theme">
 
   <main class="container">
     <h1 class="page-title">Live Crypto Prices</h1>
@@ -40,9 +28,17 @@
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `
-            <h2>${coin.name}</h2>
-            <p>Price: ₹${(coin.current_price * 83).toFixed(2)}</p>
-            <p>Change: ${coin.price_change_percentage_24h.toFixed(2)}%</p>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <img src="${coin.image}" alt="${coin.name} logo" class="crypto-logo" />
+              <div>
+                <h2 style="margin:0">${coin.name}</h2>
+                <div style="color:#6b7280; font-weight:600; font-size:12px; text-transform:uppercase">${coin.symbol}</div>
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <p style="margin:0"><strong>Price:</strong> ₹${(coin.current_price * 83).toFixed(2)}</p>
+              <p style="margin:0"><strong>24h:</strong> ${coin.price_change_percentage_24h.toFixed(2)}%</p>
+            </div>
           `;
           container.appendChild(card);
         });

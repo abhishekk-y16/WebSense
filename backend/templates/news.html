@@ -6,19 +6,7 @@
   <link rel="stylesheet" href="../../frontend/style.css">
   <link rel="stylesheet" href="../../frontend/pages.css">
 </head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        
-        <li><a href="crypto.html">Crypto Prices</a></li>
-        <li><a href="weather.html">Weather</a></li>
-        <li><a href="news.html">News</a></li>
-        
-        <li><a href="price.html">Prices</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="light-theme">
 
   <main class="container">
     <h1 class="page-title">Latest News</h1>
@@ -54,7 +42,7 @@
     }
 
     fetchNews();
-    setInterval(fetchWeather, 60000); // Update every 1 minute
+    setInterval(fetchNews, 60000); // Update every 1 minute
   </script>
 </body>
 </html>

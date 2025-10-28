@@ -7,8 +7,8 @@
   
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f6f9;
-    color: #333;
+    background: linear-gradient(180deg,#050505 0%, #071a33 60%);
+    color: #e6eef8;
     line-height: 1.6;
   }
   
@@ -22,33 +22,33 @@
   
   /* Weather Card */
   .card {
-    background: linear-gradient(145deg, #ffffff, #f0f0f0);
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    background: var(--neutral-100);
+    border-radius: var(--radius);
+    box-shadow: var(--surface-shadow-1);
     padding: 24px 20px;
     text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid #e3e3e3;
+    transition: all 0.28s ease;
+    border: 1px solid var(--neutral-200);
   }
   
   .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--surface-shadow-2);
   }
   
   /* Card Title (City Name) */
   .card h2 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #222;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-on-surface);
     margin-bottom: 12px;
   }
   
   /* Weather Info */
   .card p {
-    font-size: 16px;
+    font-size: 15px;
     margin: 6px 0;
-    color: #444;
+    color: #6b7280;
   }
   
   /* Responsive Adjustments */
